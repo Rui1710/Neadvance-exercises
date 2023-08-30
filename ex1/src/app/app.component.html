@@ -1,0 +1,36 @@
+<button pButton type="button" label="Modal" (click)="showModal()"></button>
+
+<p-dialog header="Start your new project" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <div class="p-fluid">
+    <div class="p-field p-float-label" style="margin-bottom: 25px; margin-top: 20px;">
+        <input id="input1" type="text" [(ngModel)]="input1" pInputText/>
+        <label for="input1">Project name</label>
+    </div>
+    
+    <div class="p-field p-float-label" style="margin-bottom: 25px;">
+        <input id="input2" type="text" [(ngModel)]="input2" pInputText/>
+        <label for="input2">Costumer name</label>
+    </div>
+
+    <div class="p-field p-float-label" style="margin-bottom: 20px;">
+        <textarea id="textarea" [(ngModel)]="textareaValue" pInputTextarea rows="4"></textarea>
+        <label for="textarea">Project description</label>
+    </div>
+  </div>
+
+  <div class="p-field custom-space" style="display: flex; align-items: center;">
+    <input type="file" (change)="showFilePath($event)" id="fileInput" style="display: none" />
+    <label for="fileInput" style="cursor: pointer; margin-right: 10px; background-color: #4CAF50; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+      <i class="pi pi-folder" style="color: white;"></i>
+    </label>
+
+    <div class="p-float-label file-path-field" style="margin-left: 20px;">
+        <input type="text" [(ngModel)]="filePath" pInputText readonly />
+        <label for="filePathInput">Forder path</label>
+    </div>
+  </div>
+
+  <p-footer>
+    <button pButton type="button" label="Create" (click)="closeModal()"></button>
+  </p-footer>
+</p-dialog>
